@@ -63,3 +63,11 @@ ansible-playbook /opt/ansible-lamp-wordpress/roles/playbook.yml
 ## Notes
 - Ansible Playbook is still tried on CentOS 7 x86_64 only
 - If you are using another operating system, feel free to make changes to an existing role
+- To make changes to the Ansible configuration file, you can change the following files:
+```
+/opt/ansible-lamp-wordpress/hosts
+/opt/ansible-lamp-wordpress/wp-config-sample.php
+/opt/ansible-lamp-wordpress/roles/wp-dependencies/tasks/main.yml
+/opt/ansible-lamp-wordpress/roles/wp-dependencies/defaults/main.yml
+nsible-lamp-wordpress/roles/wp-install-config/tasks/main.yml
+```
