@@ -1,0 +1,102 @@
+- name: Melakukan Pemasangan Paket Software EPEL Repository
+  yum: name=epel-release state=present
+
+- name: Melakukan Pengecekan Pembaruan Paket Software
+  yum: name=* state=latest
+
+- name: Melakukan Pemasangan Paket Software LAMP
+  yum: name={{ item }} state=present
+  with_items:
+   - httpd
+   - mariadb-server
+   - mariadb
+   - php
+   - php-mysql
+   - php-ldap
+   - php-odbc
+   - php-pear
+   - php-xml
+   - php-xmlrpc
+   - php-mbstring
+   - php-snmp
+   - php-soap
+   - MySQL-python
+
+- name: Menonaktifkan  Service Firewall
+  service: name=firewalld state=stopped
+
+- name: Menjalankan & Mengaktifkan Service SSH
+  service: name=sshd state=started enabled=yes
+
+- name: Menjalankan & Mengaktifkan Service Apache HTTP Server
+  service: name=httpd state=started enabled=yes
+
+- name: Menjalankan & Mengaktifkan Service MariaDB Database Server
+  service: name=mariadb state=started enabled=yes
+
+- name: Menyalin File Konfigurasi MariaDB Database Server
+  copy: src=/root/.my.cnf dest=/root/.my.cnf
+
+- name: Mengeset Password Database Untuk Root
+  mysql_user:
+   login_password=dB?@s$W012d
+   check_implicit_admin=yes
+   name=root
+   host={{ item }}
+   password=dB?@s$W012d
+   state=present
+  with_items:
+   - localhost
+   - 127.0.0.1
+   - ::1
+
+- name: Memuat Ulang Hak Istimewa Dari Tabel
+  command: 'mysql -ne "{{ item }}"'
+  with_items:
+   - FLUSH PRIVILEGES
+  changed_when: False
+
+- name: Menghapus Pengguna Anonim
+  command: 'mysql -ne "{{ item }}"'
+  with_items:
+   - DELETE FROM mysql.user WHERE User=''
+  changed_when: False
+
+- name: Melarang Akses Database Menggunakan Root Dari Jarak Jauh
+  command: 'mysql -ne "{{ item }}"'
+  with_items:
+   - DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1')
+  changed_when: False
+
+- name: Menghapus Database Percobaan
+  command: 'mysql -ne "{{ item }}"'
+  with_items:
+   - DROP DATABASE IF EXISTS test
+   - DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%'
+  changed_when: False
+
+- name: Memuat Ulang Hak Istimewa Dari Tabel
+  command: 'mysql -ne "{{ item }}"'
+  with_items:
+   - FLUSH PRIVILEGES
+  changed_when: False
+     
+- name: Membuat Database Untuk CMS WordPress
+  mysql_db: name={{ wp_mysql_db }} state=present
+
+- name: Mengeset Username & Password Database Untuk CMS WordPress
+  mysql_user:
+   login_user=root
+   login_password=dB?@s$W012d
+   name={{ wp_mysql_user }}
+   password={{ wp_mysql_password }}
+   priv=*.*:ALL
+
+- name: Menjalankan & Mengaktifkan Service Firewall
+  service: name=firewalld state=started enabled=yes
+
+- name: Mengaktifkan Rule Firewall
+  command: 'firewall-cmd --permanent --zone=public --add-port=22/tcp --add-port=80/tcp --add-port=3306/tcp'
+
+- name: Memuat Ulang Rule Firewall
+  command: 'firewall-cmd --reload'

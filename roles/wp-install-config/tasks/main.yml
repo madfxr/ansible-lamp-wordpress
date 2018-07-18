@@ -1,0 +1,11 @@
+- name: Membuat Direktori Source CMS WordPress
+  command: mkdir -p /opt/source/wordpress
+
+- name: Mengunduh File Master CMS WordPress
+  get_url: url=https://www.wordpress.org/latest.tar.gz dest=/opt/source/wordpress/wordpress.tar.gz validate_certs=no
+
+- name: Mengekstrak File Master CMS WordPress
+  command: "tar xzf /opt/source/wordpress/wordpress.tar.gz -C /var/www/html --strip-components 1"
+
+- name: Menyalin File Konfigurasi Sampel CMS WordPress
+  copy: src=/root/wp-config-sample.php dest=/var/www/html/wp-config.php mode=0644

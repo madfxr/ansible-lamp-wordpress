@@ -1,0 +1,4 @@
+- hosts: ansiblehost
+  roles:
+   - wp-dependencies
+   - wp-install-config
