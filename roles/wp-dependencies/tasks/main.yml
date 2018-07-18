@@ -35,7 +35,7 @@
   service: name=mariadb state=started enabled=yes
 
 - name: Menyalin File Konfigurasi MariaDB Database Server
-  copy: src=/root/.my.cnf dest=/root/.my.cnf
+  copy: src=/opt/ansible-lamp-wordpress/.my.cnf dest=/root/.my.cnf
 
 - name: Mengeset Password Database Untuk Root
   mysql_user:
