@@ -13,7 +13,7 @@ First you need to install Git and Ansible first on your server and the following
 yum install epel-release -y
 yum update -y
 yum install git ansible -y
-cd /etc/ansible/
+cd /opt/
 git clone https://github.com/xnxmx/ansible-lamp-wordpress.git
 ```
 
@@ -32,13 +32,13 @@ ssh-keygen -t rsa -b 4096
 Make changes to the host according to your needs:
 
 ```
-vi /etc/ansible/hosts
+vi /opt/ansible-lamp-wordpress/hosts
 ```
 
 and add the following line of code below:
 
 ```
-[example]
+[ansiblehost]
 192.168.1.1
 ```
 
@@ -51,19 +51,13 @@ ssh-copy-id root@192.168.1.1
 To perform connection checks on previously added hosts, run the following commands:
 
 ```
-ansible -m ping example
-```
-
-The next step that makes knowing of CMS WordPress which will be paired automatically to host 192.168.1.1:
-
-```
-cd /etc/ansible
+ansible -m ping ansiblehost
 ```
 
 To run this Ansible Playbook, run the following command:
 
 ```
-ansible-playbook /etc/ansible/ansible-lamp-wordpress/playbook/playbook.yml
+ansible-playbook /opt/ansible-lamp-wordpress/roles/playbook.yml
 ```
 
 ## Notes
