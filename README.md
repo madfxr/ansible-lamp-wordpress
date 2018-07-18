@@ -69,5 +69,5 @@ ansible-playbook /opt/ansible-lamp-wordpress/roles/playbook.yml
 /opt/ansible-lamp-wordpress/wp-config-sample.php
 /opt/ansible-lamp-wordpress/roles/wp-dependencies/tasks/main.yml
 /opt/ansible-lamp-wordpress/roles/wp-dependencies/defaults/main.yml
-nsible-lamp-wordpress/roles/wp-install-config/tasks/main.yml
+/opt/ansible-lamp-wordpress/roles/wp-install-config/tasks/main.yml
 ```
