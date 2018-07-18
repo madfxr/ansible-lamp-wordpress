@@ -91,12 +91,3 @@
    name={{ wp_mysql_user }}
    password={{ wp_mysql_password }}
    priv=*.*:ALL
-
-- name: Menjalankan & Mengaktifkan Service Firewall
-  service: name=firewalld state=started enabled=yes
-
-- name: Mengaktifkan Rule Firewall
-  command: 'firewall-cmd --permanent --zone=public --add-port=22/tcp --add-port=80/tcp --add-port=3306/tcp'
-
-- name: Memuat Ulang Rule Firewall
-  command: 'firewall-cmd --reload'
