@@ -20,10 +20,6 @@
    - php-mbstring
    - php-snmp
    - php-soap
-   - MySQL-python
-
-- name: Menonaktifkan  Service Firewall
-  service: name=firewalld state=stopped
 
 - name: Menjalankan & Mengaktifkan Service SSH
   service: name=sshd state=started enabled=yes
