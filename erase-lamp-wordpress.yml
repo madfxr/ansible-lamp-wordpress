@@ -1,0 +1,31 @@
+- name: Menyambungkan Koneksi Ke Remote Host
+  hosts: ansiblehost
+  remote_user: root
+  
+  tasks:
+   - name: Melakukan Pencopotan Paket Software LAMP
+     yum: name={{ item }} state=absent
+     with_items:
+      - httpd
+      - mariadb-server
+      - mariadb
+      - php
+      - php-mysql
+      - php-ldap
+      - php-odbc
+      - php-pear
+      - php-xml
+      - php-xmlrpc
+      - php-mbstring
+      - php-snmp
+      - php-soap
+  
+   - name: Menghapus Direktori Source CMS WordPress
+     file: 
+      path=/opt/source
+      state=absent
+   
+   - name: Menghapus Direktori Konten Web Server
+     file: 
+      path=/var/www/html
+      state=absent
