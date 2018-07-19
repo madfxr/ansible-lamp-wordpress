@@ -32,7 +32,7 @@ ssh-keygen -t rsa -b 4096
 Make changes to the host according to your needs:
 
 ```
-vi /opt/ansible-lamp-wordpress/hosts
+vi /etc/ansible/hosts
 ```
 
 and add the following line of code below:
