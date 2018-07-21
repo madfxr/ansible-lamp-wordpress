@@ -19,6 +19,7 @@
       - php-mbstring
       - php-snmp
       - php-soap
+      - MySQL-python
   
    - name: Menghapus Direktori Source CMS WordPress
      file: 
