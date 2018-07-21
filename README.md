@@ -54,10 +54,16 @@ To perform connection checks on previously added hosts, run the following comman
 ansible -m ping ansiblehost
 ```
 
-To run this Ansible Playbook, run the following command:
+To install packages and configure LAMP (Linux Apache MariaDB PHP) + CMS Wordpress, run the following command:
 
 ```
 ansible-playbook /opt/ansible-lamp-wordpress/roles/install-lamp-wordpress.yml
+```
+
+To remove packages and configuration files LAMP (Linux Apache MariaDB PHP) + WordPress CMS, run the following command:
+
+```
+ansible-playbook /opt/ansible-lamp-wordpress/roles/erase-lamp-wordpress.yml
 ```
 
 ## Notes
