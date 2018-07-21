@@ -57,7 +57,7 @@ ansible -m ping ansiblehost
 To run this Ansible Playbook, run the following command:
 
 ```
-ansible-playbook /opt/ansible-lamp-wordpress/roles/playbook.yml
+ansible-playbook /opt/ansible-lamp-wordpress/roles/install-lamp-wordpress.yml
 ```
 
 ## Notes
@@ -69,7 +69,9 @@ ansible-playbook /opt/ansible-lamp-wordpress/roles/playbook.yml
 /etc/ansible/hosts
 /opt/ansible-lamp-wordpress/.my.cnf
 /opt/ansible-lamp-wordpress/wp-config-sample.php
-/opt/ansible-lamp-wordpress/roles/wp-dependencies/tasks/main.yml
+/opt/ansible-lamp-wordpress/roles/erase-lamp-wordpress.yml
+/opt/ansible-lamp-wordpress/roles/install-lamp-wordpress.yml
 /opt/ansible-lamp-wordpress/roles/wp-dependencies/defaults/main.yml
+/opt/ansible-lamp-wordpress/roles/wp-dependencies/tasks/main.yml
 /opt/ansible-lamp-wordpress/roles/wp-install-config/tasks/main.yml
 ```
