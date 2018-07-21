@@ -60,7 +60,7 @@ To install packages and configure LAMP (Linux Apache MariaDB PHP) + CMS Wordpres
 ansible-playbook /opt/ansible-lamp-wordpress/roles/install-lamp-wordpress.yml
 ```
 
-To remove packages and configuration files LAMP (Linux Apache MariaDB PHP) + WordPress CMS, run the following command:
+To remove packages and configuration files LAMP (Linux Apache MariaDB PHP) + CMS WordPress, run the following command:
 
 ```
 ansible-playbook /opt/ansible-lamp-wordpress/roles/erase-lamp-wordpress.yml
