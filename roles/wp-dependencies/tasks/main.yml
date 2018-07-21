@@ -20,6 +20,7 @@
    - php-mbstring
    - php-snmp
    - php-soap
+   - MySQL-python
 
 - name: Menjalankan & Mengaktifkan Service SSH
   service: name=sshd state=started enabled=yes
