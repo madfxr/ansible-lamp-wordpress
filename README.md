@@ -45,7 +45,7 @@ and add the following line of code below:
 The next process is to authenticate login on host 192.168.1.1, and following the command:
 
 ```
-ssh-copy-id root@192.168.1.1
+ssh-copy-id -i /root/.ssh/id_rsa.pub root@192.168.1.1
 ```
 
 To perform connection checks on previously added hosts, run the following commands:
