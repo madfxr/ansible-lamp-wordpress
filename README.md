@@ -7,12 +7,17 @@ Automate installation & configuration of CentOS Server with software package spe
 - Ansible 2+
 
 ## Installation
-First you need to install Git and Ansible first on your server and the following commands you can follow:
+First you need to install Git and Ansible first in the master and the following commands you can follow:
 
 ```
 yum install epel-release -y
 yum update -y
 yum install git ansible -y
+```
+
+After that, clone the required repository:
+
+```
 cd /opt/
 git clone https://github.com/xnxmx/ansible-lamp-wordpress.git
 ```
