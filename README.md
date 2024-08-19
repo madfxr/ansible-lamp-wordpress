@@ -19,7 +19,7 @@ After that, clone the required repository:
 
 ```
 cd /opt/
-git clone https://github.com/xnxmx/ansible-lamp-wordpress.git
+git clone https://github.com/madfxr/ansible-lamp-wordpress.git
 ```
 
 To see which version of Ansible is installed, type the following command:
