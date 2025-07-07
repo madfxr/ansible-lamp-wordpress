@@ -1,10 +1,10 @@
 # Ansible Playbook for Automation Installation & Configuration LAMP (Linux Apache MariaDB PHP) + CMS WordPress
 
-Automate installation & configuration of CentOS Server with software package specification LAMP (Linux Apache MariaDB PHP)
+Automate installation & configuration of CentOS Server with software package specification LAMP (Linux Apache MariaDB PHP).
 
 ## Requirements
-- Git
-- Ansible 2+
+- Git.
+- Ansible 2+.
 
 ## Installation
 First, you need to install Git and Ansible first in the master and the following commands you can follow:
@@ -72,8 +72,8 @@ ansible-playbook /opt/ansible-lamp-wordpress/roles/erase-lamp-wordpress.yml
 ```
 
 ## Notes
-- Ansible Playbook is still tried on CentOS 7 x86_64 only
-- If you are using another operating system, feel free to make changes to an existing role
+- Ansible Playbook is still tried on CentOS 7 x86_64 only.
+- If you are using another operating system, feel free to make changes to an existing role.
 - To make changes to the Ansible configuration file, you can change the following files:
 
 ```
